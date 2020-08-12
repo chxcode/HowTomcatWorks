@@ -1,6 +1,8 @@
 package ex02.pyrmont;
 
 import javax.servlet.Servlet;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -37,7 +39,7 @@ public class ServletProcessor1 {
         Servlet servlet = null;
         try {
             servlet = (Servlet) myClass.newInstance();
-            servlet.service(request, response);
+            servlet.service((ServletRequest) request, (ServletResponse) response);
         }catch (Exception e){
             System.out.println(e.toString());
         }catch (Throwable t){
