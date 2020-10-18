@@ -1,5 +1,3 @@
-package ex02.pyrmont;
-
 import javax.servlet.Servlet;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -10,12 +8,12 @@ import java.net.URLClassLoader;
 import java.net.URLStreamHandler;
 
 /**
- * @ClassName ServletProcessor1
- * @Description 处理Servlet资源的HTTP请求
+ * @ClassName ServletProcessor2
+ * @Description
  * @Author changxuan
- * @Date 2020/8/11 下午10:20
+ * @Date 2020/8/12 下午10:03
  **/
-public class ServletProcessor1 {
+public class ServletProcessor2 {
     public void process(Request request, Response response){
         String uri = request.getUri();
         String servletName = uri.substring(uri.lastIndexOf("/")+1);
@@ -37,9 +35,11 @@ public class ServletProcessor1 {
             System.out.println(e.toString());
         }
         Servlet servlet = null;
+        RequestFacade requestFacade = new RequestFacade(request);
+        ResponseFacade responseFacade = new ResponseFacade(response);
         try {
             servlet = (Servlet) myClass.newInstance();
-            servlet.service((ServletRequest) request, (ServletResponse) response);
+            servlet.service((ServletRequest) requestFacade, (ServletResponse) responseFacade);
         }catch (Exception e){
             System.out.println(e.toString());
         }catch (Throwable t){

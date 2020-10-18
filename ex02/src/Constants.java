@@ -1,5 +1,3 @@
-package ex02.pyrmont;
-
 import java.io.File;
 
 /**

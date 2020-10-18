@@ -1,5 +1,3 @@
-package ex02.pyrmont;
-
 /**
  * @ClassName StaticResourceProcessor
  * @Description

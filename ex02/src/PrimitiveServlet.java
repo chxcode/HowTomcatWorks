@@ -1,9 +1,6 @@
-package ex02.pyrmont;
-
 import javax.servlet.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 /**
  * @ClassName PrimitiveServlet
  * @Description 简单的Servlet

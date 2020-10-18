@@ -1,5 +1,3 @@
-package ex02.pyrmont;
-
 import javax.servlet.ServletOutputStream;
 import javax.servlet.ServletResponse;
 import java.io.IOException;

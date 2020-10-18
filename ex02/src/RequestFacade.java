@@ -1,79 +1,43 @@
-package ex02.pyrmont;
-
 import javax.servlet.*;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;
 import java.util.Locale;
 import java.util.Map;
 
+
 /**
- * @ClassName Request
- * @Description
+ * @ClassName RequestFacade
+ * @Description request 外观类
  * @Author changxuan
- * @Date 2020/8/11 下午10:03
+ * @Date 2020/8/12 下午9:55
  **/
-public class Request implements ServletRequest {
+public class RequestFacade implements ServletRequest {
 
-    private InputStream input;
-    private String uri;
-    public String getUri(){
-        return uri;
-    }
-
-    public Request(InputStream input){
-        this.input = input;
-    }
-
-    public void parse(){
-        // Read a set of characters from socket
-        StringBuilder request = new StringBuilder(2048);
-        int i;
-        byte[] buffer = new byte[2048];
-        try {
-            i = input.read(buffer);
-        }catch (IOException e){
-            e.printStackTrace();
-            i = -1;
-        }
-        for (int j = 0; j < i; j++){
-            request.append((char)buffer[j]);
-        }
-        System.out.println(request.toString());
-        uri = parseUri(request.toString());
-    }
-
-    private String parseUri(String requestString){
-        int index1, index2;
-        index1 = requestString.indexOf(' ');
-        if (index1 != -1){
-            index2 = requestString.indexOf(' ', index1+1);
-            if (index2 > index1)
-                return requestString.substring(index1+1, index2);
-        }
-        return null;
+    private ServletRequest request = null;
+    public RequestFacade(Request request){
+        this.request = request;
     }
 
     @Override
     public Object getAttribute(String s) {
-        return null;
+        return request.getAttribute(s);
     }
 
     @Override
     public Enumeration<String> getAttributeNames() {
-        return null;
+        return request.getAttributeNames();
     }
 
     @Override
     public String getCharacterEncoding() {
-        return null;
+        return request.getCharacterEncoding();
     }
 
     @Override
     public void setCharacterEncoding(String s) throws UnsupportedEncodingException {
-
+        request.setCharacterEncoding(s);
     }
 
     @Override
@@ -83,22 +47,22 @@ public class Request implements ServletRequest {
 
     @Override
     public String getContentType() {
-        return null;
+        return request.getContentType();
     }
 
     @Override
     public ServletInputStream getInputStream() throws IOException {
-        return null;
+        return request.getInputStream();
     }
 
     @Override
     public String getParameter(String s) {
-        return null;
+        return request.getParameter(s);
     }
 
     @Override
     public Enumeration<String> getParameterNames() {
-        return null;
+        return request.getParameterNames();
     }
 
     @Override
@@ -108,22 +72,22 @@ public class Request implements ServletRequest {
 
     @Override
     public Map<String, String[]> getParameterMap() {
-        return null;
+        return request.getParameterMap();
     }
 
     @Override
     public String getProtocol() {
-        return null;
+        return request.getProtocol();
     }
 
     @Override
     public String getScheme() {
-        return null;
+        return request.getScheme();
     }
 
     @Override
     public String getServerName() {
-        return null;
+        return request.getServerName();
     }
 
     @Override
@@ -133,52 +97,52 @@ public class Request implements ServletRequest {
 
     @Override
     public BufferedReader getReader() throws IOException {
-        return null;
+        return request.getReader();
     }
 
     @Override
     public String getRemoteAddr() {
-        return null;
+        return request.getRemoteAddr();
     }
 
     @Override
     public String getRemoteHost() {
-        return null;
+        return request.getRemoteHost();
     }
 
     @Override
     public void setAttribute(String s, Object o) {
-
+        request.setAttribute(s, o);
     }
 
     @Override
     public void removeAttribute(String s) {
-
+        request.removeAttribute(s);
     }
 
     @Override
     public Locale getLocale() {
-        return null;
+        return request.getLocale();
     }
 
     @Override
     public Enumeration<Locale> getLocales() {
-        return null;
+        return request.getLocales();
     }
 
     @Override
     public boolean isSecure() {
-        return false;
+        return request.isSecure();
     }
 
     @Override
     public RequestDispatcher getRequestDispatcher(String s) {
-        return null;
+        return request.getRequestDispatcher(s);
     }
 
     @Override
     public String getRealPath(String s) {
-        return null;
+        return request.getRealPath(s);
     }
 
     @Override
@@ -188,12 +152,12 @@ public class Request implements ServletRequest {
 
     @Override
     public String getLocalName() {
-        return null;
+        return request.getLocalName();
     }
 
     @Override
     public String getLocalAddr() {
-        return null;
+        return request.getLocalAddr();
     }
 
     @Override
@@ -203,17 +167,17 @@ public class Request implements ServletRequest {
 
     @Override
     public ServletContext getServletContext() {
-        return null;
+        return request.getServletContext();
     }
 
     @Override
     public AsyncContext startAsync() {
-        return null;
+        return request.startAsync();
     }
 
     @Override
     public AsyncContext startAsync(ServletRequest servletRequest, ServletResponse servletResponse) {
-        return null;
+        return request.startAsync(servletRequest, servletResponse);
     }
 
     @Override
@@ -228,11 +192,11 @@ public class Request implements ServletRequest {
 
     @Override
     public AsyncContext getAsyncContext() {
-        return null;
+        return request.getAsyncContext();
     }
 
     @Override
     public DispatcherType getDispatcherType() {
-        return null;
+        return request.getDispatcherType();
     }
 }

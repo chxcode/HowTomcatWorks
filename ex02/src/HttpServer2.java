@@ -1,6 +1,3 @@
-package ex02.pyrmont;
-
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -9,12 +6,13 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * @ClassName HttpServer1
+ * @ClassName HttpServer2
  * @Description
  * @Author changxuan
- * @Date 2020/8/11 下午9:53
+ * @Date 2020/8/12 下午10:26
  **/
-public class HttpServer1 {
+public class HttpServer2 {
+
 
     // shutdown command
     private static final String SHUTDOWN_COMMAND = "shutdown";
@@ -54,8 +52,8 @@ public class HttpServer1 {
                 response.setRequest(request);
 
                 if (request.getUri().startsWith("/servlet/")){
-                    ServletProcessor1 servletProcessor1 = new ServletProcessor1();
-                    servletProcessor1.process(request, response);
+                    ServletProcessor2 servletProcessor2 = new ServletProcessor2();
+                    servletProcessor2.process(request, response);
                 }else {
                     StaticResourceProcessor staticResourceProcessor = new StaticResourceProcessor();
                     staticResourceProcessor.process(request, response);
