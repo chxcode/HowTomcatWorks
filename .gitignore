@@ -16,5 +16,5 @@ log/
 *.iws
 *.iml
 *.ipr
-
+out
 logs
