@@ -3,8 +3,8 @@
 —— How Tomcat Works A Guide to Developing Your Own Java Servlet Container
 
 ## 章节
-- [x] [第一章 一个简单的 Web 服务器](https://github.com/chxcode/HowTomcatWorks/tree/master/src/ex01/pyrmont)
-- [ ] 第二章 一个简单的 Servlet 容器
+- [x] [第一章 一个简单的 Web 服务器](https://github.com/chxcode/HowTomcatWorks/tree/master/cx-ex01)
+- [x] [第二章 一个简单的 Servlet 容器](https://github.com/chxcode/HowTomcatWorks/tree/master/cx-ex02)
 - [ ] 第三章 连接器
 - [ ] 第四章 Tomcat 的默认连接器
 - [ ] 第五章 servlet 容器
